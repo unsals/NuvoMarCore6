@@ -19,7 +19,7 @@ namespace DataAccessLayer.Repository
             c.SaveChanges();
         }
 
-        public void Delete(T entity)
+        public void Remove(T entity)
         {
             c.Remove(entity);
             c.SaveChanges();

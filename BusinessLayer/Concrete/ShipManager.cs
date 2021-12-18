@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete
 
         public void RemoveShip(Ship ship)
         {
-            _shipDal.Delete(ship);
+            _shipDal.Remove(ship);
         }
 
         public void UpdateShip(Ship ship)

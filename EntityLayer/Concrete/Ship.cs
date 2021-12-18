@@ -11,12 +11,12 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int ShipId { get; set; }
-        public string ShipName { get; set; }
-        public string ShipType { get; set; }
-        public bool ShipStatus { get; set; }
-        public DateTime ShipCreateDate { get; set; }
-        public DateTime ShipUpdateDate { get; set; }
-        public DateTime ShipDeleteDate { get; set; }
+        public string? ShipName { get; set; }
+        public string? ShipType { get; set; }
+        public bool? ShipStatus { get; set; }
+        public DateTime? ShipCreateDate { get; set; }
+        public DateTime? ShipUpdateDate { get; set; }
+        public DateTime? ShipDeleteDate { get; set; }
 
         public List<Voyage> Voyages { get; set; }
     }

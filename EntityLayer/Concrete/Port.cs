@@ -11,11 +11,11 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int PortId { get; set; }
-        public string PortName { get; set; }
-        public string PortCity { get; set; }
-        public DateTime PortCreateDate { get; set; }
-        public DateTime PortUpdateDate { get; set; }
-        public DateTime PortDeleteDate { get; set; }
+        public string? PortName { get; set; }
+        public string? PortCity { get; set; }
+        public DateTime? PortCreateDate { get; set; }
+        public DateTime? PortUpdateDate { get; set; }
+        public DateTime? PortDeleteDate { get; set; }
 
         public List<Voyage> Voyages { get; set; }
     }

@@ -31,20 +31,18 @@ namespace DataAccessLayer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PortId"), 1L, 1);
 
                     b.Property<string>("PortCity")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("PortCreateDate")
+                    b.Property<DateTime?>("PortCreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("PortDeleteDate")
+                    b.Property<DateTime?>("PortDeleteDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PortName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("PortUpdateDate")
+                    b.Property<DateTime?>("PortUpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("PortId");
@@ -60,24 +58,22 @@ namespace DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShipId"), 1L, 1);
 
-                    b.Property<DateTime>("ShipCreateDate")
+                    b.Property<DateTime?>("ShipCreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ShipDeleteDate")
+                    b.Property<DateTime?>("ShipDeleteDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ShipName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("ShipStatus")
+                    b.Property<bool?>("ShipStatus")
                         .HasColumnType("bit");
 
                     b.Property<string>("ShipType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ShipUpdateDate")
+                    b.Property<DateTime?>("ShipUpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("ShipId");
@@ -93,25 +89,25 @@ namespace DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VoyageId"), 1L, 1);
 
-                    b.Property<int>("PortId")
+                    b.Property<int?>("PortId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ShipId")
+                    b.Property<int?>("ShipId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("VoyageArrivalDate")
+                    b.Property<DateTime?>("VoyageArrivalDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("VoyageCreateDate")
+                    b.Property<DateTime?>("VoyageCreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("VoyageDeleteDate")
+                    b.Property<DateTime?>("VoyageDeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("VoyageDepartureDate")
+                    b.Property<DateTime?>("VoyageDepartureDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("VoyageUpdateDate")
+                    b.Property<DateTime?>("VoyageUpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("VoyageId");
@@ -127,15 +123,11 @@ namespace DataAccessLayer.Migrations
                 {
                     b.HasOne("EntityLayer.Concrete.Port", "Port")
                         .WithMany("Voyages")
-                        .HasForeignKey("PortId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PortId");
 
                     b.HasOne("EntityLayer.Concrete.Ship", "Ship")
                         .WithMany("Voyages")
-                        .HasForeignKey("ShipId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ShipId");
 
                     b.Navigation("Port");
 
