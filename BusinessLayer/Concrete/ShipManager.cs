@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.EF;
 using EntityLayer.Concrete;
 using System;
@@ -11,36 +12,36 @@ namespace BusinessLayer.Concrete
 {
     public class ShipManager : IShipService
     {
-        EfShipRepository efShipRepository;
+        IShipDal _shipDal;
 
-        public ShipManager()
+        public ShipManager(IShipDal shipDal)
         {
-            efShipRepository = new EfShipRepository();
+            _shipDal = shipDal;
         }
 
         public void AddShip(Ship ship)
         {
-            throw new NotImplementedException();
+            _shipDal.Add(ship);
         }
 
         public List<Ship> GetAll()
         {
-            throw new NotImplementedException();
+            return _shipDal.GetAll();
         }
 
         public Ship GetById(int id)
         {
-            throw new NotImplementedException();
+            return _shipDal.GetById(id);
         }
 
         public void RemoveShip(Ship ship)
         {
-            throw new NotImplementedException();
+            _shipDal.Delete(ship);
         }
 
         public void UpdateShip(Ship ship)
         {
-            throw new NotImplementedException();
+            _shipDal.Update(ship);
         }
     }
 }

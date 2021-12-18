@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;   
 
 namespace DataAccessLayer.Repository
 {
@@ -14,16 +14,21 @@ namespace DataAccessLayer.Repository
 
         Context c = new Context();
 
-        public void AddShip(Ship ship)
+        public void Add(Ship entity)
         {
-            c.Add(ship);
+            c.Add(entity);
             c.SaveChanges();
         }
 
-        public void DeleteShip(Ship ship)
+        public void Delete(Ship entity)
         {
-            c.Remove(ship);
+            c.Remove(entity);
             c.SaveChanges();
+        }
+
+        public List<Ship> GetAll()
+        {
+            return c.Ships.ToList();
         }
 
         public Ship GetById(int id)
@@ -31,14 +36,9 @@ namespace DataAccessLayer.Repository
             return c.Ships.Find(id);
         }
 
-        public List<Ship> ListAll()
+        public void Update(Ship entity)
         {
-            return c.Ships.ToList();
-        }
-
-        public void UpdateShip(Ship ship)
-        {
-            c.Update(ship);
+            c.Update(entity);
             c.SaveChanges();
         }
     }

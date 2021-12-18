@@ -14,16 +14,21 @@ namespace DataAccessLayer.Repository
 
         Context c = new Context();
 
-        public void AddShip(Voyage voyage)
+        public void Add(Voyage entity)
         {
-            c.Add(voyage);
+            c.Add(entity);
             c.SaveChanges();
         }
 
-        public void DeleteShip(Voyage voyage)
+        public void Delete(Voyage entity)
         {
-            c.Remove(voyage);
+            c.Remove(entity);
             c.SaveChanges();
+        }
+
+        public List<Voyage> GetAll()
+        {
+            return c.Voyages.ToList();
         }
 
         public Voyage GetById(int id)
@@ -31,14 +36,9 @@ namespace DataAccessLayer.Repository
             return c.Voyages.Find(id);
         }
 
-        public List<Voyage> ListAll()
+        public void Update(Voyage entity)
         {
-            return c.Voyages.ToList();
-        }
-
-        public void UpdateShip(Voyage voyage)
-        {
-            c.Update(voyage);
+            c.Update(entity);
             c.SaveChanges();
         }
     }
