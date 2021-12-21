@@ -11,7 +11,7 @@ namespace Web.Controllers
 
         public IActionResult Index()
         {
-            var values = vm.GetAll();
+            var values = vm.GetAllWithPortAndShip();
             return View(values);
         }
     }

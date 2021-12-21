@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IVoyageDal:IGenericDal<Voyage>
+    public interface IPortDal : IGenericDal<Port>
     {
-        List<Voyage> GetListWithShipAndPort();
     }
 }

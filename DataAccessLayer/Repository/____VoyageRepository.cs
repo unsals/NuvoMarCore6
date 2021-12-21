@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Abstract
+namespace DataAccessLayer.Repository
 {
-    public interface IVoyageDal:IGenericDal<Voyage>
+    public class VoyageRepository : GenericRepository<Voyage>
     {
-        List<Voyage> GetListWithShipAndPort();
     }
 }

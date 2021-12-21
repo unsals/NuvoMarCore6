@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EF
 {
-    public class EfShipRepository: GenericRepository<Ship> , IShipDal
+    public class EfPortRepository : GenericRepository<Port>, IPortDal
     {
     }
 }

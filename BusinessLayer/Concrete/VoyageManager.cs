@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _voyageDal = voyageDal;
         }
 
-        public void AddShip(Voyage voyage)
+        public void AddVoyage(Voyage voyage)
         {
             _voyageDal.Add(voyage);
         }
@@ -28,17 +28,22 @@ namespace BusinessLayer.Concrete
             return _voyageDal.GetAll();
         }
 
+        public List<Voyage> GetAllWithPortAndShip()
+        {
+            return _voyageDal.GetListWithShipAndPort();
+        }
+
         public Voyage GetById(int id)
         {
             return _voyageDal.GetById(id);
         }
 
-        public void RemoveShip(Voyage voyage)
+        public void RemoveVoyage(Voyage voyage)
         {
             _voyageDal.Remove(voyage);
         }
 
-        public void UpdateShip(Voyage voyage)
+        public void UpdateVoyage(Voyage voyage)
         {
             _voyageDal.Update(voyage);
         }

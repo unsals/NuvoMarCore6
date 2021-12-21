@@ -9,10 +9,11 @@ namespace BusinessLayer.Abstract
 {
     public interface IVoyageService
     {
-        void AddShip(Voyage voyage);
-        void RemoveShip(Voyage voyage);
-        void UpdateShip(Voyage voyage);
+        void AddVoyage(Voyage voyage);
+        void RemoveVoyage(Voyage voyage);
+        void UpdateVoyage(Voyage voyage);
         Voyage GetById(int id);
         List<Voyage> GetAll();
+        List<Voyage> GetAllWithPortAndShip();
     }
 }

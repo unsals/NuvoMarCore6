@@ -2,9 +2,14 @@
 
 namespace Web.Controllers
 {
-    public class SettingController : Controller
+    public class PortController : Controller
     {
         public IActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
+
+        public IActionResult List()
         {
             return View();
         }
