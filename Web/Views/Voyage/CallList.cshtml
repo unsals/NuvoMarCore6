@@ -2,11 +2,12 @@
 @model List<Voyage>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "CallList";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Voyages</h1>
+<h1>CallList</h1>
+
 
 <table class="table table-sm table-hover table-responsive w-100 d-block d-md-table">
     <thead>
@@ -17,6 +18,7 @@
             <th>Port City</th>
             <th>Arrival Date</th>
             <th>Departure Date</th>
+            <th>#</th>
         </tr>
     </thead>
     <tbody>
@@ -25,10 +27,12 @@
             <tr>
                 <td>@item.VoyageId</td>
                 <td>@item.Ship.ShipName</td>
+                @*<td>@item.Port.PortName.Substring(0,item.Port.PortName.Substring(0,5).LastIndexOf(" ")) ...</td>*@
                 <td>@item.Port.PortName</td>
                 <td>@item.Port.PortCity</td>
                 <td>@(((DateTime)item.VoyageArrivalDate).ToString("dd-MMM-yyyy"))</td>
                 <td>@(((DateTime)item.VoyageDepartureDate).ToString("dd-MMM-yyyy"))</td>
+                <td><a class="btn btn-warning btn-sm" href="/Voyage/CallDetails/@item.VoyageId">Details</a></td>
             </tr>
         }
     </tbody>

@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.EF;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,12 @@ namespace BusinessLayer.Concrete
         public Voyage GetById(int id)
         {
             return _voyageDal.GetById(id);
+        }
+
+        //Deneme yapmak için örnek olsun diye yazdım
+        public List<Voyage> GetVoyageByID(int id)
+        {
+            return _voyageDal.GetAll(x => x.VoyageId == id);
         }
 
         public void RemoveVoyage(Voyage voyage)

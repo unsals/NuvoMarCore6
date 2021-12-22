@@ -11,8 +11,19 @@ namespace Web.Controllers
 
         public IActionResult Index()
         {
+            return RedirectToAction("CallList");
+        }
+
+        public IActionResult CallList()
+        {
             var values = vm.GetAllWithPortAndShip();
             return View(values);
         }
+
+        public IActionResult CallDetails(int id)
+        {
+            return View();
+        }
+
     }
 }
