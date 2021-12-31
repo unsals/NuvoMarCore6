@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EF;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
@@ -13,11 +14,24 @@ namespace Web.Controllers
             return View();
         }
 
-        
         public IActionResult List()
         {
             var ship = sm.GetAll();
             return View(ship);
+        }
+
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Ship s)
+        {
+
+            return View();
         }
     }
 }

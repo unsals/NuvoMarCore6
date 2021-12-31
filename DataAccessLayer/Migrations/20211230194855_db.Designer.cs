@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20211218220848_mig4")]
-    partial class mig4
+    [Migration("20211230194855_db")]
+    partial class db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,25 +91,25 @@ namespace DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VoyageId"), 1L, 1);
 
-                    b.Property<int>("PortId")
+                    b.Property<int?>("PortId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ShipId")
+                    b.Property<int?>("ShipId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("VoyageArrivalDate")
+                    b.Property<DateTime?>("VoyageArrivalDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("VoyageCreateDate")
+                    b.Property<DateTime?>("VoyageCreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("VoyageDeleteDate")
+                    b.Property<DateTime?>("VoyageDeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("VoyageDepartureDate")
+                    b.Property<DateTime?>("VoyageDepartureDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("VoyageUpdateDate")
+                    b.Property<DateTime?>("VoyageUpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("VoyageId");
@@ -125,15 +125,11 @@ namespace DataAccessLayer.Migrations
                 {
                     b.HasOne("EntityLayer.Concrete.Port", "Port")
                         .WithMany("Voyages")
-                        .HasForeignKey("PortId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PortId");
 
                     b.HasOne("EntityLayer.Concrete.Ship", "Ship")
                         .WithMany("Voyages")
-                        .HasForeignKey("ShipId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ShipId");
 
                     b.Navigation("Port");
 

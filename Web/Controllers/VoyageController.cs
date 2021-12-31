@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EF;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
@@ -21,6 +22,19 @@ namespace Web.Controllers
         }
 
         public IActionResult CallDetails(int id)
+        {
+            return View();
+        }
+        
+        [HttpGet]
+        public IActionResult CallCreate()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CallCreate(Voyage v)
         {
             return View();
         }
