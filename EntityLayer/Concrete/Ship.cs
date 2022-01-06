@@ -13,6 +13,16 @@ namespace EntityLayer.Concrete
         public int ShipId { get; set; }
         public string? ShipName { get; set; }
         public string? ShipType { get; set; }
+        public string? ShipGRT { get; set; }
+        public string? ShipNRT { get; set; }
+        public string? ShipDWT { get; set; }
+        public string? ShipMMSI { get; set; }
+        public string? ShipIMO { get; set; }
+        public string? ShipCallSign { get; set; }
+        public string? ShipRegistry { get; set; }
+        public string? ShipFlag { get; set; }
+        public string? ShipLoa { get; set; }
+        public string? ShipDraft { get; set; }
         public bool? ShipStatus { get; set; }
         public DateTime? ShipCreateDate { get; set; }
         public DateTime? ShipUpdateDate { get; set; }

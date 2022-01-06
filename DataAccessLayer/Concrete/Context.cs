@@ -18,5 +18,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<Port> Ports { get; set; }
         public DbSet<Ship> Ships { get; set; }
         public DbSet<Voyage> Voyages { get; set; }
+        public DbSet<NuvoUser> NuvoUsers { get; set;}
     }
 }

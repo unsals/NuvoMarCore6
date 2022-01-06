@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EF;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
@@ -30,8 +32,24 @@ namespace Web.Controllers
         [HttpPost]
         public IActionResult Create(Ship s)
         {
+            ShipValidator sr = new ShipValidator();
+            ValidationResult validationResult = sr.Validate(s);
 
-            return View();
+            if (validationResult.IsValid)
+            {
+
+                return View();
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+
+                return View();
+            }
+            
         }
     }
 }

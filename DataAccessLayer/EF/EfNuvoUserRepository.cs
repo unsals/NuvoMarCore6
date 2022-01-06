@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EF
 {
-    public class EfPortRepository : GenericRepository<Port>, IPortDal
+    public class EfNuvoUserRepository : GenericRepository<NuvoUser>, INuvoUserDal
     {
 
     }
