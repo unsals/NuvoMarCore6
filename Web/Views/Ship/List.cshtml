@@ -4,10 +4,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<div class="float-left mb-3">
-    <h3>Ship List</h3>
-</div>
-<div class="float-right">
+<div class="float-right pb-2">
     <a href="~/Ship/Create">
         <input type="button" value="Add" class="btn btn-info" />
     </a>
@@ -42,8 +39,8 @@
                 <td>@item.ShipLoa</td>
                 <td>@item.ShipDraft</td>
                 <td>@item.ShipFlag</td>
-                <td style="width:25px"><a class="btn btn-warning btn-sm" href="#">Edit</a></td>
-                <td style="width:25px"><a class="btn btn-danger btn-sm" href="#">Del</a></td>
+                <td style="width:25px"><a class="btn btn-warning btn-sm" href="~/Ship/Details/@item.ShipId">Edit</a></td>
+                <td style="width:25px"><a class="btn btn-danger btn-sm" href="~/Ship/Delete/@item.ShipId">Del</a></td>
             </tr>
         }
     </tbody>

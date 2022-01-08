@@ -13,7 +13,7 @@ namespace Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("List", "Ship");
         }
 
         public IActionResult List()
@@ -50,8 +50,14 @@ namespace Web.Controllers
                 }
 
                 return View();
-            }
-            
+            } 
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var deleteData = sm.NGetById(id);
+            sm.RemoveShip(deleteData);
+            return RedirectToAction("List", "Ship");
         }
     }
 }

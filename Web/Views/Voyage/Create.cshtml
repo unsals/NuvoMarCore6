@@ -5,34 +5,33 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h4>Call Create</h4>
-@using (Html.BeginForm("CallCreate", "Voyage", FormMethod.Post, new { id = "selects-form" }))
+@using (Html.BeginForm("Create", "Voyage", FormMethod.Post, new { id = "selects-form" }))
 {
     <div class="row form-group">
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="form-group">
                 <label class="col-form-label" for="PortId">Port <span class="required">*</span></label>
-                @Html.TextBoxFor(x=>x.PortId, new {@class="form-control"})
+                @Html.DropDownListFor(x=>x.PortId, (List<SelectListItem>)ViewBag.PortList, new {@class="form-control populate", @data_plugin_selectTwo=""})
                 @Html.ValidationMessageFor(x=>x.PortId, "", new {@class = "text-danger"})
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="form-group">
-                <label class="col-form-label" for="ShipId">Ship</label>
+                <label class="col-form-label" for="ShipId">Ship <span class="required">*</span></label>
                 @Html.DropDownListFor(x=>x.ShipId, (List<SelectListItem>)ViewBag.ShipList, new {@class="form-control populate", @data_plugin_selectTwo=""})
                 @Html.ValidationMessageFor(x=>x.ShipId, "", new {@class="text-danger"})
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="form-group">
-                <label class="col-form-label" for="VoyageArrivalDate">Arrival Date</label>
+                <label class="col-form-label" for="VoyageArrivalDate">Arrival Date <span class="required">*</span></label>
                 @Html.TextBoxFor(x=>x.VoyageArrivalDate, "" , new {@class="form-control"})
                 @Html.ValidationMessageFor(x=>x.VoyageArrivalDate, "", new { @class="text-danger" })
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="form-group">
-                <label class="col-form-label" for="VoyageDepartureDate">Departure Date</label>
+                <label class="col-form-label" for="VoyageDepartureDate">Departure Date <span class="required">*</span></label>
                 @Html.TextBoxFor(x=>x.VoyageDepartureDate, "" , new {@class="form-control"})
                 @Html.ValidationMessageFor(x=>x.VoyageDepartureDate, "", new { @class="text-danger" })
             </div>

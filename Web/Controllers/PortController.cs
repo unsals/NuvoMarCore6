@@ -1,17 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EF;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
 {
     public class PortController : Controller
     {
+        PortManager pm = new PortManager(new EfPortRepository());
         public IActionResult Index()
         {
-            return RedirectToAction("List");
+            return RedirectToAction("List", "Port");
         }
 
         public IActionResult List()
         {
-            return View();
+            var portList = pm.NGetAll();
+            return View(portList);
         }
     }
 }

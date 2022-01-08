@@ -1,8 +1,35 @@
-﻿
+﻿@model List<EntityLayer.Concrete.Port>
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "Port List";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Port List Page</h1>
+<div class="float-right pb-2">
+    <a href="~/Port/Create">
+        <input type="button" value="Add" class="btn btn-info" />
+    </a>
+</div>
 
+
+<table class="table table-sm table-hover table-responsive w-100 d-block d-md-table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Port Name</th>
+            <th>Port City</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PortId</td>
+                <td>@item.PortName</td>
+                <td>@item.PortCity</td>
+                <td style="width:25px"><a class="btn btn-warning btn-sm" href="~/Port/Details/@item.PortId">Edit</a></td>
+                <td style="width:25px"><a class="btn btn-danger btn-sm" href="~/Port/Delete/@item.PortId">Del</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

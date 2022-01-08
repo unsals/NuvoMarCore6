@@ -4,6 +4,7 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220108055548_database_update1")]
+    partial class database_update1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,24 +34,24 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<string>("UsrEmail")
                         .IsRequired()
-                        .HasColumnType("Varchar(150)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UsrName")
-                        .HasColumnType("Varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UsrPassword")
                         .IsRequired()
-                        .HasColumnType("Varchar(150)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("UsrStatus")
                         .HasColumnType("bit");
 
                     b.Property<string>("UsrSurname")
-                        .HasColumnType("Varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UsrUserName")
                         .IsRequired()
-                        .HasColumnType("Varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UsrId");
 
@@ -65,7 +67,7 @@ namespace DataAccessLayer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PortId"), 1L, 1);
 
                     b.Property<string>("PortCity")
-                        .HasColumnType("Varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("PortCreateDate")
                         .HasColumnType("datetime2");
@@ -75,7 +77,7 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<string>("PortName")
                         .IsRequired()
-                        .HasColumnType("Varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("PortUpdateDate")
                         .HasColumnType("datetime2");
@@ -94,7 +96,7 @@ namespace DataAccessLayer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShipId"), 1L, 1);
 
                     b.Property<string>("ShipCallSign")
-                        .HasColumnType("Varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ShipCreateDate")
                         .HasColumnType("datetime2");
@@ -109,35 +111,35 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("decimal(12,2)");
 
                     b.Property<string>("ShipFlag")
-                        .HasColumnType("Varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("ShipGRT")
                         .HasColumnType("decimal(12,2)");
 
                     b.Property<string>("ShipIMO")
-                        .HasColumnType("Varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("ShipLoa")
                         .HasColumnType("decimal(12,2)");
 
                     b.Property<string>("ShipMMSI")
-                        .HasColumnType("Varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("ShipNRT")
                         .HasColumnType("decimal(12,2)");
 
                     b.Property<string>("ShipName")
                         .IsRequired()
-                        .HasColumnType("Varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShipRegistry")
-                        .HasColumnType("Varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("ShipStatus")
                         .HasColumnType("bit");
 
                     b.Property<string>("ShipType")
-                        .HasColumnType("Varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ShipUpdateDate")
                         .HasColumnType("datetime2");
@@ -162,7 +164,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("VoyageArrivalDate")
-                        .HasColumnType("Datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("VoyageCreateDate")
                         .HasColumnType("datetime2");
@@ -171,7 +173,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("VoyageDepartureDate")
-                        .HasColumnType("Datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("VoyageUpdateDate")
                         .HasColumnType("datetime2");

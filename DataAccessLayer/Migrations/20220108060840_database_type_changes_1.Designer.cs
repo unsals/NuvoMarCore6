@@ -4,6 +4,7 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220108060840_database_type_changes_1")]
+    partial class database_type_changes_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,7 +164,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("VoyageArrivalDate")
-                        .HasColumnType("Datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("VoyageCreateDate")
                         .HasColumnType("datetime2");
@@ -171,7 +173,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("VoyageDepartureDate")
-                        .HasColumnType("Datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("VoyageUpdateDate")
                         .HasColumnType("datetime2");

@@ -16,22 +16,22 @@ namespace Web.Controllers
 
         public IActionResult Index()
         {
-            return RedirectToAction("CallList");
+            return RedirectToAction("List", "Voyage");
         }
 
-        public IActionResult CallList()
+        public IActionResult List()
         {
             var values = vm.GetAllWithPortAndShip();
             return View(values);
         }
 
-        public IActionResult CallDetails(int id)
+        public IActionResult Details(int id)
         {
             return View();
         }
 
         [HttpGet]
-        public IActionResult CallCreate()
+        public IActionResult Create()
         {
             //List<SelectListItem> shipList = (from x in sm.NGetAll()
             //                                 select new SelectListItem
@@ -40,11 +40,10 @@ namespace Web.Controllers
             //                                     Value = x.ShipId.ToString()
             //                                 }).ToList();
             //ViewBag.ShipList = shipList;
-
+            
             ShipManager sm = new ShipManager(new EfShipRepository());
             List<SelectListItem> shipList = new List<SelectListItem>();
             shipList.Add(new SelectListItem { Text = "", Value = "" });
-
             foreach (var item in sm.NGetAll())
             {
                 shipList.Add(
@@ -55,11 +54,25 @@ namespace Web.Controllers
                     });
             }
             ViewBag.ShipList = shipList;
+
+
+            PortManager pm = new PortManager(new EfPortRepository());
+            List<SelectListItem> portList = new List<SelectListItem>();
+            foreach (var item in pm.NGetAll())
+            {
+                portList.Add(
+                    new SelectListItem
+                    {
+                        Text = item.PortName,
+                        Value = item.PortId.ToString()
+                    });
+            }
+            ViewBag.portList = portList;
             return View();
         }
 
         [HttpPost]
-        public IActionResult CallCreate(Voyage p)
+        public IActionResult Create(Voyage p)
         {
             VoyageValidator vv = new VoyageValidator();
             ValidationResult validationResult = vv.Validate(p);
@@ -68,7 +81,7 @@ namespace Web.Controllers
             {
                 p.VoyageCreateDate = DateTime.Now;
                 vm.NAdd(p);
-                return RedirectToAction("CallList", "Voyage");
+                return RedirectToAction("List", "Voyage");
             }
             else
             {
@@ -79,6 +92,13 @@ namespace Web.Controllers
 
                 return View();
             }
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var deleteData = vm.NGetById(id);
+            vm.NRemove(deleteData);
+            return RedirectToAction("List", "Voyage");
         }
 
     }

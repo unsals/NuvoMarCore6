@@ -1,11 +1,10 @@
 ﻿@model EntityLayer.Concrete.Ship
 
 @{
-    ViewData["Title"] = "ShipCreate";
+    ViewData["Title"] = "Ship Create";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h4>Ship Create</h4>
 @using (Html.BeginForm("Create", "Ship", FormMethod.Post, new { id = "selects-form" }))
 {
     <div class="row form-group">
