@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Web.ViewComponents
+namespace Web.ViewComponents.Header
 {
-    public class PortList : ViewComponent
+    public class HeaderNotificationTasks : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
-            
-
             return View();
         }
     }

@@ -1,12 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
-using DataAccessLayer.EF;
 using EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BusinessLayer.Concrete
 {
@@ -19,14 +14,30 @@ namespace BusinessLayer.Concrete
             _voyageDal = voyageDal;
         }
 
-        public void AddVoyage(Voyage voyage)
+        
+        public void NAdd(Voyage t)
         {
-            _voyageDal.Add(voyage);
+            _voyageDal.Add(t);
         }
 
-        public List<Voyage> GetAll()
+        public List<Voyage> NGetAll()
         {
             return _voyageDal.GetAll();
+        }
+
+        public Voyage NGetById(int id)
+        {
+            return _voyageDal.GetById(id);
+        }
+
+        public void NRemove(Voyage t)
+        {
+            _voyageDal.Remove(t);
+        }
+
+        public void NUpdate(Voyage t)
+        {
+            _voyageDal.Update(t);
         }
 
         public List<Voyage> GetAllWithPortAndShip()
@@ -34,25 +45,11 @@ namespace BusinessLayer.Concrete
             return _voyageDal.GetListWithShipAndPort();
         }
 
-        public Voyage GetById(int id)
-        {
-            return _voyageDal.GetById(id);
-        }
 
         //Deneme yapmak için örnek olsun diye yazdım
         public List<Voyage> GetVoyageByID(int id)
         {
             return _voyageDal.GetAll(x => x.VoyageId == id);
-        }
-
-        public void RemoveVoyage(Voyage voyage)
-        {
-            _voyageDal.Remove(voyage);
-        }
-
-        public void UpdateVoyage(Voyage voyage)
-        {
-            _voyageDal.Update(voyage);
         }
     }
 }

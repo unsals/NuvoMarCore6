@@ -18,7 +18,7 @@ namespace Web.Controllers
 
         public IActionResult List()
         {
-            var ship = sm.GetAll();
+            var ship = sm.NGetAll();
             return View(ship);
         }
 
@@ -37,8 +37,10 @@ namespace Web.Controllers
 
             if (validationResult.IsValid)
             {
-
-                return View();
+                s.ShipStatus = true;
+                s.ShipCreateDate = DateTime.Now;
+                sm.NAdd(s);
+                return RedirectToAction("List", "Ship");
             }
             else
             {

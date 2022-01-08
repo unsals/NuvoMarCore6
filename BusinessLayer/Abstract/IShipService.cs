@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IShipService
+    public interface IShipService : IGenericService<Ship>
     {
-        void AddShip(Ship ship);
-        void RemoveShip(Ship ship);
-        void UpdateShip(Ship ship);
-        Ship GetById(int id);
-        List<Ship> GetAll();
+       
     }
 }

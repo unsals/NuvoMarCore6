@@ -18,9 +18,15 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Ship Id</th>
             <th>Ship Name</th>
             <th>Ship Type</th>
+            <th>IMO</th>
+            <th>GRT</th>
+            <th>NRT</th>
+            <th>LOA</th>
+            <th>Draft</th>
+            <th>Flag</th>
+            <th colspan="2">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +36,14 @@
                 <td>@item.ShipId</td>
                 <td>@item.ShipName</td>
                 <td>@item.ShipType</td>
+                <td>@item.ShipIMO</td>
+                <td>@item.ShipGRT</td>
+                <td>@item.ShipNRT</td>
+                <td>@item.ShipLoa</td>
+                <td>@item.ShipDraft</td>
+                <td>@item.ShipFlag</td>
+                <td style="width:25px"><a class="btn btn-warning btn-sm" href="#">Edit</a></td>
+                <td style="width:25px"><a class="btn btn-danger btn-sm" href="#">Del</a></td>
             </tr>
         }
     </tbody>

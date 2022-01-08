@@ -1,6 +1,5 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
-using DataAccessLayer.EF;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -19,29 +18,34 @@ namespace BusinessLayer.Concrete
             _shipDal = shipDal;
         }
 
-        public void AddShip(Ship ship)
+        public void NAdd(Ship t)
         {
-            _shipDal.Add(ship);
+            _shipDal.Add(t);
         }
 
-        public List<Ship> GetAll()
+        public List<Ship> NGetAll()
         {
             return _shipDal.GetAll();
         }
 
-        public Ship GetById(int id)
+        public Ship NGetById(int id)
         {
             return _shipDal.GetById(id);
+        }
+
+        public void NRemove(Ship t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void NUpdate(Ship t)
+        {
+            _shipDal.Update(t);
         }
 
         public void RemoveShip(Ship ship)
         {
             _shipDal.Remove(ship);
-        }
-
-        public void UpdateShip(Ship ship)
-        {
-            _shipDal.Update(ship);
         }
     }
 }

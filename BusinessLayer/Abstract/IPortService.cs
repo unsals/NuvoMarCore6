@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IVoyageService : IGenericService<Voyage>
+    public interface IPortService : IGenericService<Port>
     {
 
     }

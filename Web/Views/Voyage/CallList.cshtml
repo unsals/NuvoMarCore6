@@ -24,7 +24,7 @@
             <th>Port City</th>
             <th>Arrival Date</th>
             <th>Departure Date</th>
-            <th>#</th>
+            <th colspan="2">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -38,7 +38,8 @@
                 <td>@item.Port.PortCity</td>
                 <td>@(((DateTime)item.VoyageArrivalDate).ToString("dd-MMM-yyyy"))</td>
                 <td>@(((DateTime)item.VoyageDepartureDate).ToString("dd-MMM-yyyy"))</td>
-                <td><a class="btn btn-warning btn-sm" href="/Voyage/CallDetails/@item.VoyageId">Details</a></td>
+                <td style="width:25px"><a class="btn btn-warning btn-sm" href="/Voyage/CallDetails/@item.VoyageId">Edit</a></td>
+                <td style="width:25px"><a class="btn btn-danger btn-sm" href="#">Del</a></td>
             </tr>
         }
     </tbody>

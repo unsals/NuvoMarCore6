@@ -10,6 +10,13 @@
 
     <!-- start: search & user box -->
     <div class="header-right">
+
+        <ul class="notifications">
+            @await Component.InvokeAsync("HeaderNotificationTasks")
+            @await Component.InvokeAsync("HeaderNotificationMessages")
+            @await Component.InvokeAsync("HeaderNotificationAlerts")
+        </ul>
+
         <span class="separator"></span>
 
         <div id="userbox" class="userbox">

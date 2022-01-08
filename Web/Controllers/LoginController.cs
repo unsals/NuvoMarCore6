@@ -1,8 +1,10 @@
 ﻿using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Web.Controllers
 {
@@ -18,13 +20,22 @@ namespace Web.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult Index(NuvoUser p)
+        public async Task<IActionResult> Index(NuvoUser p)
         {
             Context c = new Context();
-            var datavalue = c.NuvoUsers.FirstOrDefault(x => x.UsrUserName == p.UsrUserName && x.UsrPassword == x.UsrPassword);
-            if(datavalue != null)
+            var datavalue = c.NuvoUsers.FirstOrDefault(x=>x.UsrUserName == p.UsrUserName && x.UsrPassword == p.UsrPassword);
+            if (datavalue != null)
             {
-                HttpContext.Session.SetString("username", p.UsrUserName);
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, p.UsrUserName)
+                };
+
+                var userIdentity = new ClaimsIdentity(claims, "a");
+
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                await HttpContext.SignInAsync(principal);
+
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -35,3 +46,16 @@ namespace Web.Controllers
         }
     }
 }
+
+
+//Context c = new Context();
+//var datavalue = c.NuvoUsers.FirstOrDefault(x => x.UsrUserName == p.UsrUserName && x.UsrPassword == p.UsrPassword);
+//if (datavalue != null)
+//{
+//    HttpContext.Session.SetString("username", p.UsrUserName);
+//    return RedirectToAction("Index", "Home");
+//}
+//else
+//{
+//    return View();
+//}
