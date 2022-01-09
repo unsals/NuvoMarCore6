@@ -112,5 +112,13 @@
     <script src="~/js/theme.init.js"></script>
     <!-- Examples -->
     <script src="~/js/examples/examples.validation.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("@ViewData["selected-menu"]").addClass("nav-expanded nav-active");
+            $("@ViewData["selected-submenu"]").addClass("nav-active");
+        });
+    </script>
+
 </body>
 </html>

@@ -77,6 +77,9 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("Varchar(50)");
 
+                    b.Property<bool>("PortStatus")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("PortUpdateDate")
                         .HasColumnType("datetime2");
 
@@ -162,7 +165,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("VoyageArrivalDate")
-                        .HasColumnType("Datetime");
+                        .HasColumnType("datetime");
 
                     b.Property<DateTime?>("VoyageCreateDate")
                         .HasColumnType("datetime2");
@@ -171,7 +174,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("VoyageDepartureDate")
-                        .HasColumnType("Datetime");
+                        .HasColumnType("datetime");
 
                     b.Property<DateTime?>("VoyageUpdateDate")
                         .HasColumnType("datetime2");

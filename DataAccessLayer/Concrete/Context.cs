@@ -13,6 +13,7 @@ namespace DataAccessLayer.Concrete
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=NuvoMar;Integrated Security=True");
+            //optionsBuilder.UseMySQL("server=localhost;database=nuvomar;user=root;password=");
         }
 
         public DbSet<Port> Ports { get; set; }

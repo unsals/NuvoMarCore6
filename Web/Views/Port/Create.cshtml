@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.Port
+
+@{
+    ViewData["Title"] = "Port Create";
+    ViewData["selected-menu"] = "#menu-settings";
+    ViewData["selected-submenu"] = "#menu-settings-port_list";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Port", FormMethod.Post, new { id = "selects-form" }))
+{
+    <div class="row form-group">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="col-form-label" for="PortName">Port Name <span class="required">*</span></label>
+                @Html.TextBoxFor(x=>x.PortName, "" , new {@class="form-control"})
+                @Html.ValidationMessageFor(x=>x.PortName, "", new { @class="text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="col-form-label" for="PortCity">Port City <span class="required">*</span></label>
+                @Html.TextBoxFor(x=>x.PortCity, "" , new {@class="form-control"})
+                @Html.ValidationMessageFor(x=>x.PortCity, "", new { @class="text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <button type="submit" class="btn btn-info">Save</button>
+        </div>
+    </div>
+}

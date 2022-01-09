@@ -50,13 +50,29 @@ namespace Web.Controllers
                 }
 
                 return View();
-            } 
+            }
         }
 
         public IActionResult Delete(int id)
         {
             var deleteData = sm.NGetById(id);
             sm.RemoveShip(deleteData);
+            return RedirectToAction("List", "Ship");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var shipData = sm.NGetById(id);
+            return View(shipData);
+        }
+
+
+        [HttpPost]
+        public IActionResult Edit(Ship p)
+        {
+            p.ShipUpdateDate = DateTime.Now;
+            sm.NUpdate(p);
             return RedirectToAction("List", "Ship");
         }
     }

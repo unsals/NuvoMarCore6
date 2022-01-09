@@ -1,0 +1,93 @@
+﻿@model EntityLayer.Concrete.Ship
+
+@{
+    ViewData["Title"] = "Ship Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@using (Html.BeginForm("Edit", "Ship", FormMethod.Post, new { id = "selects-form" }))
+{
+    @Html.HiddenFor(x=>x.ShipId)
+
+    <div class="row form-group">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipName">Ship Name <span class="required">*</span></label>
+                @Html.TextBoxFor(x=>x.ShipName, new {@class="form-control"})
+                @Html.ValidationMessageFor(x=>x.ShipName, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipType">Ship Type</label>
+                @Html.TextBoxFor(x=>x.ShipType, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipGRT">Ship GRT</label>
+                @Html.TextBoxFor(x=>x.ShipGRT, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipNRT">Ship NRT</label>
+                @Html.TextBoxFor(x=>x.ShipNRT, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipIMO">Ship IMO</label>
+                @Html.TextBoxFor(x=>x.ShipIMO, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipMMSI">Ship MMSI</label>
+                @Html.TextBoxFor(x=>x.ShipMMSI, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipLoa">Ship LOA</label>
+                @Html.TextBoxFor(x=>x.ShipLoa, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipDraft">Ship Draft</label>
+                @Html.TextBoxFor(x=>x.ShipDraft, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipDWT">Ship DWT</label>
+                @Html.TextBoxFor(x=>x.ShipDWT, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipFlag">Ship Flag</label>
+                @Html.TextBoxFor(x=>x.ShipFlag, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipRegistry">Ship Registry</label>
+                @Html.TextBoxFor(x=>x.ShipRegistry, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="col-form-label" for="ShipCallSign">Ship Call Sign</label>
+                @Html.TextBoxFor(x=>x.ShipCallSign, new {@class="form-control"})
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <button type="submit" class="btn btn-info">Save</button>
+        </div>
+    </div>
+}

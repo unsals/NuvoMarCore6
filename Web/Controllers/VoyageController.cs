@@ -43,7 +43,6 @@ namespace Web.Controllers
             
             ShipManager sm = new ShipManager(new EfShipRepository());
             List<SelectListItem> shipList = new List<SelectListItem>();
-            shipList.Add(new SelectListItem { Text = "", Value = "" });
             foreach (var item in sm.NGetAll())
             {
                 shipList.Add(
@@ -74,6 +73,36 @@ namespace Web.Controllers
         [HttpPost]
         public IActionResult Create(Voyage p)
         {
+
+            ShipManager sm = new ShipManager(new EfShipRepository());
+            List<SelectListItem> shipList = new List<SelectListItem>();
+            foreach (var item in sm.NGetAll())
+            {
+                shipList.Add(
+                    new SelectListItem
+                    {
+                        Text = item.ShipName,
+                        Value = item.ShipId.ToString()
+                    });
+            }
+            ViewBag.ShipList = shipList;
+
+
+            PortManager pm = new PortManager(new EfPortRepository());
+            List<SelectListItem> portList = new List<SelectListItem>();
+            foreach (var item in pm.NGetAll())
+            {
+                portList.Add(
+                    new SelectListItem
+                    {
+                        Text = item.PortName,
+                        Value = item.PortId.ToString()
+                    });
+            }
+            ViewBag.portList = portList;
+
+
+
             VoyageValidator vv = new VoyageValidator();
             ValidationResult validationResult = vv.Validate(p);
 

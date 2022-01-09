@@ -15,10 +15,10 @@ namespace EntityLayer.Concrete
         public int? ShipId { get; set; }
         public int? PortId { get; set; }
 
-        [Column(TypeName = "Datetime")]
+        [Column(TypeName = "datetime")]
         public DateTime? VoyageArrivalDate { get; set; }
 
-        [Column(TypeName = "Datetime")]
+        [Column(TypeName = "datetime")]
         public DateTime? VoyageDepartureDate { get; set; }
 
         public DateTime? VoyageCreateDate { get; set; }

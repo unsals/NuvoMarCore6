@@ -22,6 +22,7 @@ namespace EntityLayer.Concrete
         public DateTime? PortCreateDate { get; set; }
         public DateTime? PortUpdateDate { get; set; }
         public DateTime? PortDeleteDate { get; set; }
+        public bool PortStatus { get; set; }
 
         public List<Voyage>? Voyages { get; set; }
     }

@@ -1,6 +1,8 @@
 ﻿@model List<EntityLayer.Concrete.Port>
 @{
     ViewData["Title"] = "Port List";
+    ViewData["selected-menu"] = "#menu-settings";
+    ViewData["selected-submenu"] = "#menu-settings-port_list";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -27,7 +29,7 @@
                 <td>@item.PortId</td>
                 <td>@item.PortName</td>
                 <td>@item.PortCity</td>
-                <td style="width:25px"><a class="btn btn-warning btn-sm" href="~/Port/Details/@item.PortId">Edit</a></td>
+                <td style="width:25px"><a class="btn btn-warning btn-sm" href="~/Port/Edit/@item.PortId">Edit</a></td>
                 <td style="width:25px"><a class="btn btn-danger btn-sm" href="~/Port/Delete/@item.PortId">Del</a></td>
             </tr>
         }
