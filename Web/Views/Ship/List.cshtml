@@ -1,4 +1,8 @@
-﻿@model List<EntityLayer.Concrete.Ship>
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IPagedList<EntityLayer.Concrete.Ship>
+
 @{
     ViewData["Title"] = "Ship List";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -45,3 +49,11 @@
         }
     </tbody>
 </table>
+
+<div class="paging_simple_numbers">
+    @Html.PagedListPager((IPagedList)Model, page=>Url.Action("List", new { page } ), new PagedListRenderOptions()
+    {
+        LiElementClasses = new List<string> {"page-item"},
+        PageClasses = new List<string> {"page-link"}
+    })
+</div>

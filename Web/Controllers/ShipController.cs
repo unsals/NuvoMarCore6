@@ -4,6 +4,7 @@ using DataAccessLayer.EF;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using X.PagedList;
 
 namespace Web.Controllers
 {
@@ -16,9 +17,9 @@ namespace Web.Controllers
             return RedirectToAction("List", "Ship");
         }
 
-        public IActionResult List()
+        public IActionResult List(int page = 1)
         {
-            var ship = sm.NGetAll();
+            var ship = sm.NGetAll().ToPagedList(page, 2);
             return View(ship);
         }
 
